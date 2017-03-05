@@ -9,5 +9,5 @@ Please note, Data feeds responsible for N, Q, R, W, B, and D trains are in Beta.
 In these cases, information for these specified trains are not always available per MTA documentation.
 
 ##Scheduler
-20,50 * * * * source /home/darnelclayton/fancy/env/bin/activate && python /home/darnelclayton/fancy//fancymta/get_mta_updates.py
+20,50 * * * * source /home/darnelclayton/fancy/env/bin/activate && python /home/darnelclayton/fancy/fancymta/get_mta_updates.py
 Crontab is responsible for scheduling get_mta_updates.py module.
