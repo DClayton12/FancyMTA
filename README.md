@@ -9,7 +9,6 @@ Project gathers NYC Subway GTFS data by polling MTA data feeds.
 
 
 Please note, Data feeds responsible for N, Q, R, W, B, and D trains are in Beta.
-
 In these cases, information for these specified trains are not always available per MTA documentation.
 
 ##Scheduler
