@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Current Train Status</h3>
+
+<h3>Filter by Date</h3>
+<form action="/fancy-mta/filter_dates/" method="POST">
+    <select name="select_date" id="select_date" onchange="this.form.submit()">
+        <option value="20170303">20170303</option>
+        <option value="20170304">20170304</option>
+        <option value="20170305">20170305</option>
+    </select>
+</form>
+
+<h3>Filter by Train Route</h3>
+<form action="/fancy-mta/filter_train/" method="POST">
+    <select name="select_train" id="select_train" onchange="this.form.submit()">
+        <option value="1">1 Train</option>
+        <option value="2">2 Train</option>
+        <option value="3">3 Train</option>
+        <option value="4">4 Train</option>
+        <option value="5">5 Train</option>
+        <option value="6">6 Train</option>
+        <option value="S">S Train</option>
+        <option value="N">N Train</option>
+        <option value="Q">Q Train</option>
+        <option value="R">R Train</option>
+        <option value="W">W Train</option>
+        <option value="B">B Train</option>
+        <option value="D">D Train</option>
+        <option value="L">L Train</option>
+    </select>
+</form>
+<br/>
+
+{% for train in trains %}
+    <div>
+      <h4>Train Route: {{train.trainRoute}}</h4>
+      <p>Date: {{train.date}}</p>
+      <p>Arrival: {{train.arrivalTime}}</p>
+      <p>Depart: {{train.departTime}}</p>
+      <p>Status: {{train.isDelay}}</p>
+     <br/>
+    </div>
+    </br>
+{% else %}
+<p><b>No Trains found using applied filter.</b></p>
+{% endfor %}
+
+{% if next_page_token %}
+<nav>
+  <ul class="pager">
+    <li><a href="?page_token={{next_page_token}}">More</a></li>
+  </ul>
+</nav>
+{% endif %}
+
+{% endblock %}
